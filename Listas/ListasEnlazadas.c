@@ -38,7 +38,7 @@ struct Nodo *AgregarAlFinal(struct Nodo *nodo, int dato)
     return nodo;
 }
 
-void *MostrarLista(struct Nodo *nodo)
+void MostrarLista(struct Nodo *nodo)
 {
     if(nodo!=NULL)
     {
@@ -55,6 +55,35 @@ void *MostrarLista(struct Nodo *nodo)
     printf("\n");
 }
 
+struct Nodo *AgregarEnmedio(struct Nodo *nodo,int dato)
+{
+    struct Nodo *temporal=NULL;
+    struct Nodo *nodonuevo=(struct Nodo*)malloc(sizeof(struct Nodo));
+    int buscar;
+
+
+    if(nodonuevo!=NULL)
+    {
+        nodonuevo->dato=dato;
+        temporal=nodo;
+        puts("Despues de que dato quiere insertar el nuevo nodo");
+        scanf("%d",&buscar);
+
+        while(temporal!=NULL)
+        {
+            if(temporal->dato==buscar)
+            {
+                nodonuevo->siguiente=temporal->siguiente;
+                temporal->siguiente=nodonuevo;
+                break;
+            }
+            else
+                temporal=temporal->siguiente;
+        }
+    }
+    return nodo;
+}
+
 int main()
 {
     struct Nodo *nodo=NULL;
@@ -64,6 +93,8 @@ int main()
     nodo=AgregarAlFinal(nodo,10);
     nodo=AgregarAlFinal(nodo,9);
     nodo=AgregarAlFinal(nodo,8);
+    MostrarLista(nodo);
+    nodo=AgregarEnmedio(nodo,111);
     MostrarLista(nodo);
     return 0;
 }
