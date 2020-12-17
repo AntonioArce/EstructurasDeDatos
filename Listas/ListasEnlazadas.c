@@ -38,7 +38,7 @@ struct Nodo *AgregarAlFinal(struct Nodo *nodo, int dato)
     return nodo;
 }
 
-struct Nodo *MostrarLista(struct Nodo *nodo)
+void *MostrarLista(struct Nodo *nodo)
 {
     if(nodo!=NULL)
     {
