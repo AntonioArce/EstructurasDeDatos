@@ -84,6 +84,18 @@ struct Nodo *AgregarEnmedio(struct Nodo *nodo,int dato)
     return nodo;
 }
 
+struct Nodo *EliminarAlInicio(struct Nodo *nodo)
+{
+    struct Nodo *aux=NULL;
+
+    aux=nodo;
+
+    nodo=aux->siguiente;
+    
+    free(aux);
+    return nodo;
+}
+
 int main()
 {
     struct Nodo *nodo=NULL;
@@ -95,6 +107,8 @@ int main()
     nodo=AgregarAlFinal(nodo,8);
     MostrarLista(nodo);
     nodo=AgregarEnmedio(nodo,111);
+    MostrarLista(nodo);
+    nodo=EliminarAlInicio(nodo);
     MostrarLista(nodo);
     return 0;
 }
