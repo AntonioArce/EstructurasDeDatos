@@ -110,5 +110,8 @@ int main()
     MostrarLista(nodo);
     nodo=EliminarAlInicio(nodo);
     MostrarLista(nodo);
+    nodo=AgregarAlFinal(nodo,99);
+    MostrarLista(nodo);
+
     return 0;
 }
